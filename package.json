@@ -1,0 +1,24 @@
+{
+  "name": "broccoli-ng-templates",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bblack/broccoli-ng-templates.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bblack/broccoli-ng-templates/issues"
+  },
+  "homepage": "https://github.com/bblack/broccoli-ng-templates",
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "broccoli-writer": "^0.1.1",
+    "walk": "^2.3.9"
+  }
+}
