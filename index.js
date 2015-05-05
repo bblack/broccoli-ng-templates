@@ -8,10 +8,12 @@ var walk = require('walk')
 module.exports = CompileNgTemplates
 CompileNgTemplates.prototype = Object.create(Writer.prototype)
 CompileNgTemplates.prototype.constructor = CompileNgTemplates
-function CompileNgTemplates (inputTree, dest) {
+function CompileNgTemplates (inputTree, dest, opts) {
   if (!(this instanceof CompileNgTemplates)) return new CompileNgTemplates(inputTree, dest);
+  opts = opts || {};
   this.inputTree = inputTree;
   this.dest = dest;
+  this.moduleName = opts.moduleName || 'templates';
 }
 
 CompileNgTemplates.prototype.write = function (readTree, destDir) {
@@ -25,7 +27,8 @@ CompileNgTemplates.prototype.write = function (readTree, destDir) {
         resolve();
       })
 
-      outFileStream.write('define(function (require) { var angular = require("angular"); angular.module("ds.drive.templates", []).run(["$templateCache", function($templateCache) {   "use strict";\n');
+      var firstLine = util.format('define(function (require) { var angular = require("angular"); angular.module("%s", []).run(["$templateCache", function($templateCache) {   "use strict";\n', this.moduleName);
+      outFileStream.write(firstLine);
 
       var walker = walk.walk(inputTmpDir, {followLinks: true})
       .on('file', function(root, fileStats, next){
