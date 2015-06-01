@@ -27,7 +27,7 @@ CompileNgTemplates.prototype.write = function (readTree, destDir) {
         resolve();
       })
 
-      var firstLine = util.format('define(function (require) { var angular = require("angular"); angular.module("%s", []).run(["$templateCache", function($templateCache) {   "use strict";\n', this.moduleName);
+      var firstLine = util.format('define(function (require) { var angular = require("angular"); angular.module("%s", []).run(["$templateCache", function($templateCache) {   "use strict";\n', self.moduleName);
       outFileStream.write(firstLine);
 
       var walker = walk.walk(inputTmpDir, {followLinks: true})
