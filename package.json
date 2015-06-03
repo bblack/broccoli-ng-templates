@@ -1,7 +1,8 @@
 {
   "name": "broccoli-ng-templates",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
+  "readme": "README.md",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
